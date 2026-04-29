@@ -34,7 +34,7 @@
     justify-content:space-between; height:62px;
   }
   .nav-logo { font-family:var(--font-display); font-size:1.6rem; font-weight:900; color:#fff; letter-spacing:2px; text-decoration:none; text-transform:uppercase; display:flex; align-items:center; gap:.6rem; }
-  .nav-escudo { width:34px; height:34px; background:var(--bordo); border-radius:50% 50% 44% 44%; display:flex; align-items:center; justify-content:center; font-size:.72rem; font-weight:900; color:#fff; flex-shrink:0; }
+  .nav-escudo { width:34px; height:34px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
   .nav-logo span { color:var(--bordo-light); }
   .nav-links { display:flex; gap:1.4rem; list-style:none; align-items:center; }
   .nav-links a { font-family:var(--font-display); font-size:.85rem; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,.65); text-decoration:none; transition:color .2s; }
@@ -57,7 +57,6 @@
   .hero-badge { display:inline-flex; align-items:center; gap:.55rem; background:rgba(122,28,40,.35); border:1px solid rgba(155,37,53,.4); color:rgba(255,255,255,.85); font-family:var(--font-display); font-size:.76rem; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; padding:.38rem 1.15rem; border-radius:2px; margin-bottom:1.75rem; }
   .hero-badge::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--bordo-light); animation:pulso 2s infinite; }
   @keyframes pulso { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.3;transform:scale(.65)} }
-  .hero-escudo-grande { width:108px; height:108px; border-radius:50% 50% 44% 44%; background:linear-gradient(160deg,var(--bordo) 0%,var(--bordo-dark) 100%); border:3px solid rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem; box-shadow:0 8px 32px rgba(122,28,40,.5); }
   .hero-title { font-family:var(--font-display); font-size:clamp(4rem,11vw,8rem); font-weight:900; line-height:.88; text-transform:uppercase; letter-spacing:3px; color:#fff; margin-bottom:.6rem; }
   .hero-title .fc { color:var(--bordo-light); }
   .hero-sub { font-family:var(--font-display); font-size:clamp(.9rem,2.5vw,1.25rem); font-weight:400; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,.38); margin-bottom:.85rem; }
@@ -110,19 +109,31 @@
   .ch-hora { font-family:var(--font-display); font-weight:700; color:#fff; font-size:.95rem; }
   @media(max-width:720px){ .nosotros-grid{grid-template-columns:1fr} .cancha-card{display:none} }
 
+  /* GALERÍA */
+  .galeria-grid-main { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:2.5rem; }
+  .galeria-full { grid-column:1/-1; }
+  .galeria-grid-main img { width:100%; border-radius:8px; object-fit:cover; display:block; transition:transform .3s; }
+  .galeria-grid-main img:hover { transform:scale(1.02); }
+  .galeria-grid-main .galeria-full { aspect-ratio:16/7; }
+  .galeria-grid-main .galeria-mitad { aspect-ratio:4/3; }
+
   /* STAFF */
   #staff { background:var(--blanco); }
-  .staff-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.75rem; margin-top:2.5rem; }
-  .staff-card { border:1px solid var(--gris-medio); border-radius:6px; overflow:hidden; transition:transform .2s,box-shadow .2s; }
-  .staff-card:hover { transform:translateY(-4px); box-shadow:0 12px 28px rgba(0,0,0,.08); }
-  .staff-photo { height:230px; display:flex; align-items:center; justify-content:center; position:relative; }
-  .staff-avatar { width:90px; height:90px; border-radius:50%; background:rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:2.4rem; font-weight:900; color:rgba(255,255,255,.9); border:3px solid rgba(255,255,255,.22); }
-  .staff-rol { position:absolute; bottom:.85rem; left:1rem; right:1rem; background:var(--bordo); color:#fff; font-family:var(--font-display); font-size:.7rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:.28rem .7rem; border-radius:2px; text-align:center; }
-  .staff-info { padding:1.25rem; }
-  .staff-name { font-family:var(--font-display); font-size:1.35rem; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:.4rem; }
-  .staff-desc { font-size:.88rem; color:var(--texto-suave); line-height:1.65; }
-  .staff-tel { display:inline-flex; align-items:center; gap:.4rem; margin-top:.85rem; font-family:var(--font-display); font-size:1rem; font-weight:700; color:var(--bordo); text-decoration:none; }
+  .staff-layout { display:grid; grid-template-columns:1fr 1.4fr; gap:3rem; align-items:start; margin-top:2.5rem; }
+  .staff-fotos-col { display:flex; flex-direction:column; gap:.75rem; }
+  .staff-foto-principal { width:100%; border-radius:8px; object-fit:cover; aspect-ratio:3/4; display:block; box-shadow:0 12px 32px rgba(0,0,0,.15); }
+  .staff-fotos-mini { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
+  .staff-foto-mini { width:100%; border-radius:6px; object-fit:cover; aspect-ratio:1/1; display:block; }
+  .staff-bio-tag { background:var(--bordo); color:#fff; display:inline-block; font-family:var(--font-display); font-size:.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:.28rem .9rem; border-radius:2px; margin-bottom:1rem; }
+  .staff-bio-nombre { font-family:var(--font-display); font-size:2.2rem; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:1.25rem; color:var(--texto); }
+  .staff-bio-texto { font-size:.95rem; color:var(--texto-suave); line-height:1.85; margin-bottom:1rem; }
+  .staff-stats { display:flex; gap:1.75rem; flex-wrap:wrap; margin-top:1.5rem; margin-bottom:1.5rem; }
+  .staff-stat { text-align:center; }
+  .staff-stat-n { font-family:var(--font-display); font-size:2rem; font-weight:900; color:var(--bordo); display:block; line-height:1; }
+  .staff-stat-l { font-size:.7rem; letter-spacing:1px; text-transform:uppercase; color:var(--texto-suave); margin-top:.2rem; }
+  .staff-tel { display:inline-flex; align-items:center; gap:.4rem; font-family:var(--font-display); font-size:1rem; font-weight:700; color:var(--bordo); text-decoration:none; }
   .staff-tel:hover { color:var(--bordo-light); }
+  @media(max-width:720px){ .staff-layout{grid-template-columns:1fr} }
 
   /* SEDES */
   #sedes { background:var(--bordo-dark); color:#fff; }
@@ -167,17 +178,14 @@
   /* SPONSORS */
   #sponsors { background:var(--blanco); border-top:1px solid var(--gris-medio); }
   .sponsors-subtitulo { font-size:.95rem; color:var(--texto-suave); margin-bottom:2.5rem; max-width:500px; }
-  .sponsors-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.25rem; }
-  .sponsor-card { display:flex; flex-direction:column; align-items:center; text-align:center; padding:1.85rem 1.25rem; border:1px solid var(--gris-medio); border-radius:6px; text-decoration:none; color:var(--texto); transition:transform .2s,box-shadow .2s,border-color .2s; }
+  .sponsors-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1.25rem; }
+  .sponsor-card { display:flex; flex-direction:column; align-items:center; text-align:center; padding:1.75rem 1rem; border:1px solid var(--gris-medio); border-radius:6px; text-decoration:none; color:var(--texto); transition:transform .2s,box-shadow .2s,border-color .2s; }
   .sponsor-card:hover { transform:translateY(-3px); box-shadow:0 10px 24px rgba(0,0,0,.07); border-color:var(--bordo); }
   .sponsor-logo { width:80px; height:80px; border-radius:50%; background:var(--gris-claro); border:1px solid var(--gris-medio); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:1.5rem; font-weight:900; color:var(--bordo); margin-bottom:1rem; overflow:hidden; flex-shrink:0; }
-  .sponsor-logo img { width:100%; height:100%; object-fit:contain; padding:10px; }
-  .sponsor-nombre { font-family:var(--font-display); font-size:1.1rem; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:.3rem; }
-  .sponsor-desc { font-size:.83rem; color:var(--texto-suave); line-height:1.55; }
-  .sponsor-tag { display:inline-block; margin-top:.65rem; font-family:var(--font-display); font-size:.68rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--bordo); background:var(--bordo-pale); padding:.2rem .65rem; border-radius:2px; }
-  .sponsors-placeholder { grid-column:1/-1; text-align:center; padding:3rem 2rem; border:2px dashed var(--gris-medio); border-radius:6px; }
-  .sponsors-placeholder p { font-size:.92rem; color:var(--texto-suave); line-height:1.75; }
-  .sponsors-placeholder strong { color:var(--bordo); }
+  .sponsor-logo img { width:100%; height:100%; object-fit:cover; }
+  .sponsor-nombre { font-family:var(--font-display); font-size:1rem; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:.3rem; }
+  .sponsor-desc { font-size:.82rem; color:var(--texto-suave); line-height:1.55; }
+  .sponsor-tag { display:inline-block; margin-top:.6rem; font-family:var(--font-display); font-size:.68rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--bordo); background:var(--bordo-pale); padding:.2rem .65rem; border-radius:2px; }
 
   /* INSCRIPCIÓN */
   #inscripcion { background:var(--gris-claro); }
@@ -203,7 +211,6 @@
 
   /* FOOTER */
   footer { background:#0F0F0F; color:rgba(255,255,255,.5); padding:3rem 1.5rem; text-align:center; }
-  .footer-escudo { width:50px; height:50px; border-radius:50% 50% 44% 44%; background:var(--bordo); margin:0 auto .75rem; display:flex; align-items:center; justify-content:center; }
   .footer-logo { font-family:var(--font-display); font-size:1.9rem; font-weight:900; letter-spacing:3px; color:#fff; text-transform:uppercase; margin-bottom:.35rem; }
   .footer-logo span { color:var(--bordo-light); }
   .footer-tag { font-size:.72rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:2rem; }
@@ -232,13 +239,14 @@
 <!-- NAV -->
 <nav>
   <a href="#inicio" class="nav-logo">
-    <div class="nav-escudo" style="background:none; padding:2px;">
-  <img src="escudo.png" alt="Sinergia F.C" style="width:90px; height:90px; object-fit:contain;">
-</div>
+    <div class="nav-escudo">
+      <img src="./escudo.png" alt="Sinergia F.C" style="width:42px;height:42px;object-fit:contain;">
+    </div>
     SINERGIA <span>&nbsp;F.C</span>
   </a>
   <ul class="nav-links">
     <li><a href="#nosotros">Nosotras</a></li>
+    <li><a href="#galeria">Galería</a></li>
     <li><a href="#staff">Staff</a></li>
     <li><a href="#sedes">Sede</a></li>
     <li><a href="#precios">Precios</a></li>
@@ -258,9 +266,9 @@
   <div class="hero-glow2"></div>
   <div class="hero-content">
     <div class="hero-badge">Escuela de Fútbol 5 Femenino · Resistencia, Chaco</div>
-    <div class="hero-escudo-grande" style="background:none; border:none; box-shadow:none;">
-  <img src="escudo.png" alt="Sinergia F.C" style="width:289px; height:289px; object-fit:contain;">
-</div>
+    <div style="margin:0 auto 1.5rem;display:flex;justify-content:center;">
+      <img src="./escudo.png" alt="Sinergia F.C" style="width:180px;height:180px;object-fit:contain;">
+    </div>
     <h1 class="hero-title">SINERGIA<br><span class="fc">F.C</span></h1>
     <p class="hero-sub">Resistencia · Chaco · Argentina</p>
     <p class="hero-slogan">Vení a aprender, competir y divertirte con nosotras. Un espacio para mujeres que quieran jugar sin límites ni exclusividades.</p>
@@ -332,46 +340,60 @@
   </div>
 </section>
 
+<!-- GALERÍA -->
+<section id="galeria" style="background:var(--bordo-dark);padding:5rem 1.5rem;">
+  <div class="container">
+    <div class="section-label" style="color:rgba(255,255,255,.4);">
+      <span style="width:22px;height:2px;background:rgba(255,255,255,.3);display:inline-block;flex-shrink:0;"></span>
+      Momentos reales
+    </div>
+    <h2 class="section-title" style="color:#fff;">Galería</h2>
+    <div class="galeria-grid-main">
+      <img src="./foto1.jpg" alt="Equipo Sinergia en cancha" class="galeria-full fade">
+      <img src="./foto2.jpg" alt="Sinergia F5 pies en círculo" class="galeria-mitad fade d1">
+      <img src="./foto3.jpg" alt="Copa Sinergia" class="galeria-mitad fade d2">
+      <img src="./foto4.jpg" alt="Equipo Sinergia con bandera" class="galeria-full fade d1">
+    </div>
+  </div>
+</section>
+
 <!-- STAFF -->
 <section id="staff">
   <div class="container">
     <div class="section-label">El equipo detrás</div>
     <h2 class="section-title">Nuestro staff</h2>
-
-    <!-- FOTO PRINCIPAL GRANDE -->
-    <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:start;margin-top:2.5rem;">
-      <div>
-        <img src="./foto-facu.jpg" alt="Profe Facu"
-          style="width:100%;border-radius:8px;object-fit:cover;aspect-ratio:3/4;display:block;box-shadow:0 12px 32px rgba(0,0,0,.15);">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:.75rem;">
-          <img src="./foto-facu-2.jpg" alt="Facu en estadio"
-            style="width:100%;border-radius:6px;object-fit:cover;aspect-ratio:1/1;display:block;">
-          <img src="./foto-facu-3.jpg" alt="Facu en cancha"
-            style="width:100%;border-radius:6px;object-fit:cover;aspect-ratio:1/1;display:block;">
+    <div class="staff-layout">
+      <!-- FOTOS -->
+      <div class="staff-fotos-col fade">
+        <img src="./foto-facu.jpg" alt="Profe Facu" class="staff-foto-principal">
+        <div class="staff-fotos-mini">
+          <img src="./foto-facu-2.jpg" alt="Facu con copa" class="staff-foto-mini">
+          <img src="./foto-facu-3.jpg" alt="Facu en cancha" class="staff-foto-mini">
         </div>
       </div>
-      <div>
-        <div style="background:var(--bordo);color:#fff;display:inline-block;font-family:var(--font-display);font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:.28rem .9rem;border-radius:2px;margin-bottom:1rem;">Director técnico · Fundador</div>
-        <div style="font-family:var(--font-display);font-size:2.2rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:1.25rem;color:var(--texto);">Facundo Salemi</div>
-        <p style="font-size:.95rem;color:var(--texto-suave);line-height:1.85;margin-bottom:1rem;">¡Hola! Soy Facundo Salemi, profesor de Sinergia F.C. Desde muy chico el fútbol forma parte de mi vida y se convirtió en mi mayor pasión.</p>
-        <p style="font-size:.95rem;color:var(--texto-suave);line-height:1.85;margin-bottom:1rem;">Comencé a competir a los 6 años y a lo largo de mi carrera pasé por clubes como Central Norte, CUNE, River Plate, Argentinos Juniors y <strong>Chaco For Ever</strong>, donde disputé más de 100 partidos en Primera División, marqué 20 goles y fui parte del plantel que logró el <strong>ascenso a la Primera Nacional en 2021</strong>.</p>
-        <p style="font-size:.95rem;color:var(--texto-suave);line-height:1.85;margin-bottom:1rem;">En 2024 inicié mi camino como entrenador en Sinergia, donde junto al equipo alcanzamos el tercer puesto en el Torneo Seven de Sixty y nos <strong>consagramos campeonas en 2025</strong>.</p>
-        <p style="font-size:.95rem;color:var(--texto-suave);line-height:1.85;margin-bottom:1.5rem;">Hoy mi objetivo es transmitir mi experiencia y mi pasión por el fútbol, acompañando a cada jugadora en su desarrollo dentro y fuera de la cancha.</p>
-        <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
-          <div style="text-align:center;">
-            <div style="font-family:var(--font-display);font-size:2rem;font-weight:900;color:var(--bordo);">100+</div>
-            <div style="font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--texto-suave);">Partidos 1ª División</div>
+      <!-- BIO -->
+      <div class="fade d1">
+        <div class="staff-bio-tag">Director técnico · Fundador</div>
+        <div class="staff-bio-nombre">Facundo Salemi</div>
+        <p class="staff-bio-texto">¡Hola! Soy Facundo Salemi, profesor de Sinergia F.C. Desde muy chico el fútbol forma parte de mi vida y se convirtió en mi mayor pasión.</p>
+        <p class="staff-bio-texto">Comencé a competir a los 6 años y a lo largo de mi carrera pasé por clubes como Central Norte, CUNE, River Plate, Argentinos Juniors y <strong>Chaco For Ever</strong>, donde disputé más de 100 partidos en Primera División, marqué 20 goles y fui parte del plantel que logró el <strong>ascenso a la Primera Nacional en 2021</strong>.</p>
+        <p class="staff-bio-texto">En 2024 inicié mi camino como entrenador en Sinergia, donde junto al equipo alcanzamos el tercer puesto en el Torneo Seven de Sixty y nos <strong>consagramos campeonas en 2025</strong>.</p>
+        <p class="staff-bio-texto">Hoy mi objetivo es transmitir mi experiencia y mi pasión por el fútbol, acompañando a cada jugadora en su desarrollo dentro y fuera de la cancha, en un espacio donde el crecimiento, el compromiso y el disfrute van de la mano.</p>
+        <div class="staff-stats">
+          <div class="staff-stat">
+            <span class="staff-stat-n">100+</span>
+            <span class="staff-stat-l">Partidos 1ª Div.</span>
           </div>
-          <div style="text-align:center;">
-            <div style="font-family:var(--font-display);font-size:2rem;font-weight:900;color:var(--bordo);">20</div>
-            <div style="font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--texto-suave);">Goles</div>
+          <div class="staff-stat">
+            <span class="staff-stat-n">20</span>
+            <span class="staff-stat-l">Goles</span>
           </div>
-          <div style="text-align:center;">
-            <div style="font-family:var(--font-display);font-size:2rem;font-weight:900;color:var(--bordo);">🏆</div>
-            <div style="font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--texto-suave);">Campeonas 2025</div>
+          <div class="staff-stat">
+            <span class="staff-stat-n">🏆</span>
+            <span class="staff-stat-l">Campeonas 2025</span>
           </div>
         </div>
-        <a href="tel:3624850265" style="display:inline-flex;align-items:center;gap:.4rem;margin-top:1.5rem;font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--bordo);text-decoration:none;">📞 3624 850265</a>
+        <a href="tel:3624850265" class="staff-tel">📞 3624 850265</a>
       </div>
     </div>
   </div>
@@ -394,7 +416,6 @@
         </div>
         <div class="sede-nota">Cupos limitados por turno. Consultá disponibilidad antes de inscribirte.</div>
       </div>
-      <!-- Para agregar más sedes, duplicar el bloque .sede-card -->
     </div>
   </div>
 </section>
@@ -453,13 +474,7 @@
     <div class="section-label">Nos apoyan</div>
     <h2 class="section-title">Sponsors y aliados</h2>
     <p class="sponsors-subtitulo">Gracias a quienes hacen posible que Sinergia siga creciendo.</p>
-    <div class="sponsors-grid" id="sponsors-grid">
-      <div class="sponsors-placeholder">
-        <p>¿Querés ser sponsor de Sinergia F.C?<br>
-        <strong>Escribinos a @sinergia.f5 o al 3624 296974</strong><br>
-        y charlamos cómo podemos trabajar juntos.</p>
-      </div>
-    </div>
+    <div class="sponsors-grid" id="sponsors-grid"></div>
   </div>
 </section>
 
@@ -509,7 +524,7 @@
             </div>
             <div class="fg"><label>Observaciones</label><textarea id="obs" placeholder="¿Tenés alguna consulta, lesión o algo que quieras contarnos?"></textarea></div>
             <button type="submit" class="btn-form">Enviar inscripción por WhatsApp</button>
-            <p class="form-nota">📲 Tu mensaje va directo al Profe Facu · 3624 296974</p>
+            <p class="form-nota">📲 Tu mensaje va directo al Profe Facu · 3624 850265</p>
           </form>
         </div>
       </div>
@@ -519,9 +534,9 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-escudo" style="background:none;">
-  <img src="escudo.png" alt="Sinergia F.C" style="width:200px; height:200px; object-fit:contain;">
-</div>
+  <div style="margin:0 auto .75rem;display:flex;justify-content:center;">
+    <img src="./escudo.png" alt="Sinergia F.C" style="width:80px;height:80px;object-fit:contain;">
+  </div>
   <div class="footer-logo">SINERGIA <span>F.C</span></div>
   <div class="footer-tag">Escuela de Fútbol 5 Femenino · Resistencia, Chaco</div>
 
@@ -534,19 +549,28 @@
     <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
     @sinergia.f5
   </a>
-  
+
   <ul class="footer-links">
     <li><a href="#inicio">Inicio</a></li>
     <li><a href="#nosotros">Nosotras</a></li>
+    <li><a href="#galeria">Galería</a></li>
     <li><a href="#sedes">Sede</a></li>
     <li><a href="#precios">Precios</a></li>
     <li><a href="#inscripcion">Inscribirse</a></li>
   </ul>
   <div class="footer-copy">© 2026 Sinergia F.C · Resistencia, Chaco · Todos los derechos reservados</div>
+  <div style="margin-top:.75rem;font-size:.68rem;color:rgba(255,255,255,.2);">
+    Diseño y desarrollo web ·
+    <a href="https://wa.me/543794000000" target="_blank"
+       style="color:rgba(255,255,255,.35);text-decoration:none;"
+       onmouseover="this.style.color='#9B2535'" onmouseout="this.style.color='rgba(255,255,255,.35)'">
+      desarrollowebnea
+    </a>
+  </div>
 </footer>
-  
+
 <!-- WhatsApp FAB -->
-<a href="https://wa.me/543624296974?text=Hola%20Profe%20Facu!%20Vi%20la%20web%20de%20Sinergia%20F.C%20y%20quiero%20m%C3%A1s%20info%20%F0%9F%8F%83%E2%80%8D%E2%99%80%EF%B8%8F"
+<a href="https://wa.me/543624850265?text=Hola%20Profe%20Facu!%20Vi%20la%20web%20de%20Sinergia%20F.C%20y%20quiero%20m%C3%A1s%20info%20%F0%9F%8F%83%E2%80%8D%E2%99%80%EF%B8%8F"
    class="wa-fab" target="_blank" title="Escribile al Profe Facu">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -554,28 +578,51 @@
 </a>
 
 <script>
-// ════════════════════════════════════════════════════
-//  SPONSORS — Agregá acá cuando los tengas
-//  Si el array está vacío muestra el placeholder
-// ════════════════════════════════════════════════════
 const SPONSORS = [
-  // Descomentá y completá con datos reales:
-  // {
-  //   nombre: "Nombre del sponsor",
-  //   desc:   "Descripción corta.",
-  //   tag:    "Categoría",
-  //   logo:   "",          // URL de imagen, o "" para usar iniciales
-  //   link:   "https://",
-  // },
+  {
+    nombre: "Azahi Pilchería",
+    desc: "Indumentaria y accesorios deportivos.",
+    tag: "Indumentaria",
+    logo: "./sponsor-azahi.jpg",
+    link: "https://instagram.com",
+  },
+  {
+    nombre: "Diwali",
+    desc: "Bienestar y cuidado personal.",
+    tag: "Bienestar",
+    logo: "./sponsor-diwali.jpg",
+    link: "https://wa.me/543624517711",
+  },
+  {
+    nombre: "JMP Kinesiología",
+    desc: "Kinesiología y recuperación deportiva.",
+    tag: "Salud",
+    logo: "./sponsor-jmp.jpg",
+    link: "https://instagram.com",
+  },
+  {
+    nombre: "Mamón del Norte",
+    desc: "Productos regionales del NEA.",
+    tag: "Alimentación",
+    logo: "./sponsor-mamon.jpg",
+    link: "https://instagram.com",
+  },
+  {
+    nombre: "Lic. Ezealbarenga",
+    desc: "Nutrición deportiva especializada.",
+    tag: "Nutrición",
+    logo: "./sponsor-ezeal.jpg",
+    link: "https://instagram.com",
+  },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Sponsors — sección principal
+  // Sponsors sección
   const grid = document.getElementById('sponsors-grid');
-  if (SPONSORS.length > 0) {
+  if (grid && SPONSORS.length > 0) {
     grid.innerHTML = SPONSORS.map(s => {
-      const ini  = s.nombre.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+      const ini = s.nombre.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
       const logo = s.logo ? `<img src="${s.logo}" alt="${s.nombre}">` : ini;
       return `<a href="${s.link}" target="_blank" rel="noopener" class="sponsor-card fade">
         <div class="sponsor-logo">${logo}</div>
@@ -586,18 +633,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }).join('');
   }
 
-  // Sponsors — footer
+  // Sponsors footer
   const fWrap = document.getElementById('footer-sponsors-wrap');
   const fRow  = document.getElementById('footer-sponsors-row');
   if (SPONSORS.length > 0) {
     fWrap.style.display = 'block';
     fRow.innerHTML = SPONSORS.map(s => {
-      const ini  = s.nombre.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+      const ini = s.nombre.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
       const logo = s.logo
-        ? `<img src="${s.logo}" alt="${s.nombre}" style="width:100%;height:100%;object-fit:contain;padding:6px">`
+        ? `<img src="${s.logo}" alt="${s.nombre}" style="width:100%;height:100%;object-fit:cover;">`
         : `<span style="font-family:'Barlow Condensed',sans-serif;font-size:.95rem;font-weight:900;color:#9B2535">${ini}</span>`;
-      return `<a href="${s.link}" target="_blank" rel="noopener"
-        title="${s.nombre}"
+      return `<a href="${s.link}" target="_blank" rel="noopener" title="${s.nombre}"
         style="display:flex;flex-direction:column;align-items:center;gap:.4rem;text-decoration:none;opacity:.6;transition:opacity .2s"
         onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'">
         <div style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;overflow:hidden">${logo}</div>
@@ -625,7 +671,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (hs) heroObs.observe(hs);
 });
 
-// Formulario → WhatsApp
+// Formulario WhatsApp
 document.getElementById('form-inscripcion').addEventListener('submit', function(e) {
   e.preventDefault();
   const nombre      = document.getElementById('nombre').value.trim();
@@ -642,8 +688,7 @@ document.getElementById('form-inscripcion').addEventListener('submit', function(
   }
 
   const msg = [
-    `🏃‍♀️ *Nueva inscripción — Sinergia F.C*`,
-    ``,
+    `🏃‍♀️ *Nueva inscripción — Sinergia F.C*`,``,
     `👤 *Nombre:* ${nombre}`,
     `🎂 *Edad:* ${edad} años`,
     `📱 *Teléfono:* ${telefono}`,
@@ -651,11 +696,10 @@ document.getElementById('form-inscripcion').addEventListener('submit', function(
     `💳 *Plan:* ${plan}`,
     `⚽ *Experiencia:* ${experiencia}`,
     obs  ? `📝 *Obs:* ${obs}` : null,
-    ``,
-    `_Desde el sitio web de Sinergia F.C_`,
+    ``,`_Desde el sitio web de Sinergia F.C_`,
   ].filter(Boolean).join('\n');
 
-  window.open(`https://wa.me/543624296974?text=${encodeURIComponent(msg)}`,'_blank');
+  window.open(`https://wa.me/543624850265?text=${encodeURIComponent(msg)}`,'_blank');
   mostrarAlerta('ok','¡Mensaje enviado al Profe Facu! Pronto te confirma tu lugar. 🎉');
   this.reset();
 });
