@@ -109,13 +109,23 @@
   .ch-hora { font-family:var(--font-display); font-weight:700; color:#fff; font-size:.95rem; }
   @media(max-width:720px){ .nosotros-grid{grid-template-columns:1fr} .cancha-card{display:none} }
 
-  /* GALERÍA */
-  .galeria-grid-main { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:2.5rem; }
-  .galeria-full { grid-column:1/-1; }
-  .galeria-grid-main img { width:100%; border-radius:8px; object-fit:cover; display:block; transition:transform .3s; }
-  .galeria-grid-main img:hover { transform:scale(1.02); }
-  .galeria-grid-main .galeria-full { aspect-ratio:16/7; }
-  .galeria-grid-main .galeria-mitad { aspect-ratio:4/3; }
+  <!-- GALERÍA -->
+<section id="galeria" style="background:var(--gris-claro);padding:5rem 1.5rem;">
+  <div class="container">
+    <div class="section-label">Momentos reales</div>
+    <h2 class="section-title">Galería</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem;">
+      <img src="./foto1.jpg" alt="Equipo Sinergia"
+        style="width:100%;border-radius:8px;object-fit:cover;aspect-ratio:4/3;display:block;grid-column:1/-1;">
+      <img src="./foto2.jpg" alt="Sinergia F5"
+        style="width:100%;border-radius:8px;object-fit:cover;aspect-ratio:1/1;display:block;">
+      <img src="./foto3.jpg" alt="Copa Sinergia"
+        style="width:100%;border-radius:8px;object-fit:cover;aspect-ratio:1/1;display:block;">
+      <img src="./foto4.jpg" alt="Equipo con bandera"
+        style="width:100%;border-radius:8px;object-fit:cover;aspect-ratio:4/3;display:block;grid-column:1/-1;">
+    </div>
+  </div>
+</section>
 
   /* STAFF */
   #staff { background:var(--blanco); }
