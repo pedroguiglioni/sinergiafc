@@ -34,7 +34,7 @@
     justify-content:space-between; height:62px;
   }
   .nav-logo { font-family:var(--font-display); font-size:1.6rem; font-weight:900; color:#fff; letter-spacing:2px; text-decoration:none; text-transform:uppercase; display:flex; align-items:center; gap:.6rem; }
-  .nav-escudo { width:34px; height:34px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .nav-escudo { width:38px; height:38px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
   .nav-logo span { color:var(--bordo-light); }
   .nav-links { display:flex; gap:1.4rem; list-style:none; align-items:center; }
   .nav-links a { font-family:var(--font-display); font-size:.85rem; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,.65); text-decoration:none; transition:color .2s; }
@@ -109,23 +109,24 @@
   .ch-hora { font-family:var(--font-display); font-weight:700; color:#fff; font-size:.95rem; }
   @media(max-width:720px){ .nosotros-grid{grid-template-columns:1fr} .cancha-card{display:none} }
 
-  <!-- GALERÍA -->
-<section id="galeria" style="background:var(--gris-claro);padding:5rem 1.5rem;">
-  <div class="container">
-    <div class="section-label">Momentos reales</div>
-    <h2 class="section-title">Galería</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:1rem;margin-top:2.5rem;">
-      <img src="./foto1.jpg" alt="Equipo Sinergia"
-        style="width:100%;border-radius:8px;object-fit:cover;aspect-ratio:1/1;display:block;">
-      <img src="./foto2.jpg" alt="Sinergia F5"
-        style="width:100%;border-radius:8px;object-fit:cover;aspect-ratio:1/1;display:block;">
-      <img src="./foto3.jpg" alt="Copa Sinergia"
-        style="width:100%;border-radius:8px;object-fit:cover;aspect-ratio:1/1;display:block;">
-      <img src="./foto4.jpg" alt="Equipo con bandera"
-        style="width:100%;border-radius:8px;object-fit:cover;aspect-ratio:1/1;display:block;">
-    </div>
-  </div>
-</section>
+  /* GALERÍA */
+  #galeria { background:var(--bordo-dark); }
+  #galeria .section-label { color:rgba(255,255,255,.4); }
+  #galeria .section-label::before { background:rgba(255,255,255,.25); }
+  #galeria .section-title { color:#fff; }
+  .galeria-grid {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:.75rem;
+    margin-top:2.5rem;
+  }
+  .galeria-grid img {
+    width:100%; aspect-ratio:1/1;
+    object-fit:cover; border-radius:6px;
+    display:block; transition:transform .3s,opacity .3s;
+  }
+  .galeria-grid img:hover { transform:scale(1.03); opacity:.9; }
+  @media(max-width:600px){ .galeria-grid { grid-template-columns:repeat(2,1fr); } }
 
   /* STAFF */
   #staff { background:var(--blanco); }
@@ -137,7 +138,7 @@
   .staff-bio-tag { background:var(--bordo); color:#fff; display:inline-block; font-family:var(--font-display); font-size:.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:.28rem .9rem; border-radius:2px; margin-bottom:1rem; }
   .staff-bio-nombre { font-family:var(--font-display); font-size:2.2rem; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:1.25rem; color:var(--texto); }
   .staff-bio-texto { font-size:.95rem; color:var(--texto-suave); line-height:1.85; margin-bottom:1rem; }
-  .staff-stats { display:flex; gap:1.75rem; flex-wrap:wrap; margin-top:1.5rem; margin-bottom:1.5rem; }
+  .staff-stats { display:flex; gap:1.75rem; flex-wrap:wrap; margin-top:1.5rem; margin-bottom:1.5rem; padding:1.25rem; background:var(--gris-claro); border-radius:6px; }
   .staff-stat { text-align:center; }
   .staff-stat-n { font-family:var(--font-display); font-size:2rem; font-weight:900; color:var(--bordo); display:block; line-height:1; }
   .staff-stat-l { font-size:.7rem; letter-spacing:1px; text-transform:uppercase; color:var(--texto-suave); margin-top:.2rem; }
@@ -185,43 +186,17 @@
   .btn-solid:hover { background:var(--bordo-light); }
   .precios-aviso { margin-top:1.5rem; text-align:center; font-size:.8rem; color:var(--texto-suave); }
 
- const SPONSORS = [
-  {
-    nombre: "Azahi Pilchería",
-    desc: "Indumentaria y accesorios deportivos.",
-    tag: "Indumentaria",
-    logo: "./sponsor-azahi.jpg",
-    link: "https://instagram.com",
-  },
-  {
-    nombre: "Diwali",
-    desc: "Bienestar y cuidado personal.",
-    tag: "Bienestar",
-    logo: "./sponsor-diwali.jpg",
-    link: "https://wa.me/543624517711",
-  },
-  {
-    nombre: "JMP Kinesiología",
-    desc: "Kinesiología y recuperación deportiva.",
-    tag: "Salud",
-    logo: "./sponsor-jmp.jpg",
-    link: "https://instagram.com",
-  },
-  {
-    nombre: "Mamón del Norte",
-    desc: "Productos regionales del NEA.",
-    tag: "Alimentación",
-    logo: "./sponsor-mamon.jpg",
-    link: "https://instagram.com",
-  },
-  {
-    nombre: "Lic. Ezealbarenga",
-    desc: "Nutrición deportiva especializada.",
-    tag: "Nutrición",
-    logo: "./sponsor-ezeal.jpg",
-    link: "https://instagram.com",
-  },
-];
+  /* SPONSORS */
+  #sponsors { background:var(--blanco); border-top:1px solid var(--gris-medio); }
+  .sponsors-subtitulo { font-size:.95rem; color:var(--texto-suave); margin-bottom:2.5rem; max-width:500px; }
+  .sponsors-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1.25rem; }
+  .sponsor-card { display:flex; flex-direction:column; align-items:center; text-align:center; padding:1.5rem 1rem; border:1px solid var(--gris-medio); border-radius:6px; text-decoration:none; color:var(--texto); transition:transform .2s,box-shadow .2s,border-color .2s; }
+  .sponsor-card:hover { transform:translateY(-3px); box-shadow:0 10px 24px rgba(0,0,0,.07); border-color:var(--bordo); }
+  .sponsor-logo { width:72px; height:72px; border-radius:50%; background:var(--gris-claro); border:1px solid var(--gris-medio); display:flex; align-items:center; justify-content:center; margin-bottom:.85rem; overflow:hidden; flex-shrink:0; }
+  .sponsor-logo img { width:100%; height:100%; object-fit:cover; }
+  .sponsor-nombre { font-family:var(--font-display); font-size:.95rem; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:.25rem; }
+  .sponsor-desc { font-size:.8rem; color:var(--texto-suave); line-height:1.5; }
+  .sponsor-tag { display:inline-block; margin-top:.5rem; font-family:var(--font-display); font-size:.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--bordo); background:var(--bordo-pale); padding:.18rem .6rem; border-radius:2px; }
 
   /* INSCRIPCIÓN */
   #inscripcion { background:var(--gris-claro); }
@@ -276,7 +251,7 @@
 <nav>
   <a href="#inicio" class="nav-logo">
     <div class="nav-escudo">
-      <img src="./escudo.png" alt="Sinergia F.C" style="width:42px;height:42px;object-fit:contain;">
+      <img src="./escudo.png" alt="Sinergia F.C" style="width:38px;height:38px;object-fit:contain;">
     </div>
     SINERGIA <span>&nbsp;F.C</span>
   </a>
@@ -377,18 +352,15 @@
 </section>
 
 <!-- GALERÍA -->
-<section id="galeria" style="background:var(--bordo-dark);padding:5rem 1.5rem;">
+<section id="galeria">
   <div class="container">
-    <div class="section-label" style="color:rgba(255,255,255,.4);">
-      <span style="width:22px;height:2px;background:rgba(255,255,255,.3);display:inline-block;flex-shrink:0;"></span>
-      Momentos reales
-    </div>
-    <h2 class="section-title" style="color:#fff;">Galería</h2>
-    <div class="galeria-grid-main">
-      <img src="./foto1.jpg" alt="Equipo Sinergia en cancha" class="galeria-full fade">
-      <img src="./foto2.jpg" alt="Sinergia F5 pies en círculo" class="galeria-mitad fade d1">
-      <img src="./foto3.jpg" alt="Copa Sinergia" class="galeria-mitad fade d2">
-      <img src="./foto4.jpg" alt="Equipo Sinergia con bandera" class="galeria-full fade d1">
+    <div class="section-label">Momentos reales</div>
+    <h2 class="section-title">Galería</h2>
+    <div class="galeria-grid">
+      <img src="./foto1.jpg" alt="Equipo Sinergia en cancha" class="fade">
+      <img src="./foto2.jpg" alt="Sinergia F5 pies en círculo" class="fade d1">
+      <img src="./foto3.jpg" alt="Copa Sinergia" class="fade d2">
+      <img src="./foto4.jpg" alt="Equipo Sinergia con bandera" class="fade d3">
     </div>
   </div>
 </section>
@@ -399,7 +371,6 @@
     <div class="section-label">El equipo detrás</div>
     <h2 class="section-title">Nuestro staff</h2>
     <div class="staff-layout">
-      <!-- FOTOS -->
       <div class="staff-fotos-col fade">
         <img src="./foto-facu.jpg" alt="Profe Facu" class="staff-foto-principal">
         <div class="staff-fotos-mini">
@@ -407,7 +378,6 @@
           <img src="./foto-facu-3.jpg" alt="Facu en cancha" class="staff-foto-mini">
         </div>
       </div>
-      <!-- BIO -->
       <div class="fade d1">
         <div class="staff-bio-tag">Director técnico · Fundador</div>
         <div class="staff-bio-nombre">Facundo Salemi</div>
@@ -532,7 +502,7 @@
       <div class="fade d1">
         <div class="inscripcion-form">
           <div id="alerta-ok" class="alerta ok">¡Mensaje enviado al Profe Facu! Pronto te confirma tu lugar. 🎉</div>
-          <div id="alerta-err" class="alerta err">Algo salió mal. Escribí directo al 3624 296974.</div>
+          <div id="alerta-err" class="alerta err">Algo salió mal. Escribí directo al 3624 850265.</div>
           <form id="form-inscripcion" novalidate>
             <div class="form-row">
               <div class="fg"><label>Nombre y apellido *</label><input type="text" id="nombre" placeholder="María González" required></div>
@@ -571,21 +541,18 @@
 <!-- FOOTER -->
 <footer>
   <div style="margin:0 auto .75rem;display:flex;justify-content:center;">
-    <img src="./escudo.png" alt="Sinergia F.C" style="width:80px;height:80px;object-fit:contain;">
+    <img src="./escudo.png" alt="Sinergia F.C" style="width:72px;height:72px;object-fit:contain;">
   </div>
   <div class="footer-logo">SINERGIA <span>F.C</span></div>
   <div class="footer-tag">Escuela de Fútbol 5 Femenino · Resistencia, Chaco</div>
-
   <div class="footer-sponsors-wrap" id="footer-sponsors-wrap">
     <div class="footer-sponsors-label">Sponsors</div>
     <div class="footer-sponsors-row" id="footer-sponsors-row"></div>
   </div>
-
   <a href="https://instagram.com/sinergia.f5" target="_blank" class="footer-ig">
     <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
     @sinergia.f5
   </a>
-
   <ul class="footer-links">
     <li><a href="#inicio">Inicio</a></li>
     <li><a href="#nosotros">Nosotras</a></li>
@@ -615,46 +582,15 @@
 
 <script>
 const SPONSORS = [
-  {
-    nombre: "Azahi Pilchería",
-    desc: "Indumentaria y accesorios deportivos.",
-    tag: "Indumentaria",
-    logo: "./sponsor-azahi.jpg",
-    link: "https://instagram.com",
-  },
-  {
-    nombre: "Diwali",
-    desc: "Bienestar y cuidado personal.",
-    tag: "Bienestar",
-    logo: "./sponsor-diwali.jpg",
-    link: "https://wa.me/543624517711",
-  },
-  {
-    nombre: "JMP Kinesiología",
-    desc: "Kinesiología y recuperación deportiva.",
-    tag: "Salud",
-    logo: "./sponsor-jmp.jpg",
-    link: "https://instagram.com",
-  },
-  {
-    nombre: "Mamón del Norte",
-    desc: "Productos regionales del NEA.",
-    tag: "Alimentación",
-    logo: "./sponsor-mamon.jpg",
-    link: "https://instagram.com",
-  },
-  {
-    nombre: "Lic. Ezealbarenga",
-    desc: "Nutrición deportiva especializada.",
-    tag: "Nutrición",
-    logo: "./sponsor-ezeal.jpg",
-    link: "https://instagram.com",
-  },
+  { nombre:"Azahi Pilchería", desc:"Indumentaria y accesorios deportivos.", tag:"Indumentaria", logo:"./sponsor-azahi.jpg", link:"https://instagram.com" },
+  { nombre:"Diwali", desc:"Bienestar y cuidado personal.", tag:"Bienestar", logo:"./sponsor-diwali.jpg", link:"https://wa.me/543624517711" },
+  { nombre:"JMP Kinesiología", desc:"Kinesiología y recuperación deportiva.", tag:"Salud", logo:"./sponsor-jmp.jpg", link:"https://instagram.com" },
+  { nombre:"Mamón del Norte", desc:"Productos regionales del NEA.", tag:"Alimentación", logo:"./sponsor-mamon.jpg", link:"https://instagram.com" },
+  { nombre:"Lic. Ezealbarenga", desc:"Nutrición deportiva especializada.", tag:"Nutrición", logo:"./sponsor-ezeal.jpg", link:"https://instagram.com" },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Sponsors sección
   const grid = document.getElementById('sponsors-grid');
   if (grid && SPONSORS.length > 0) {
     grid.innerHTML = SPONSORS.map(s => {
@@ -669,7 +605,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }).join('');
   }
 
-  // Sponsors footer
   const fWrap = document.getElementById('footer-sponsors-wrap');
   const fRow  = document.getElementById('footer-sponsors-row');
   if (SPONSORS.length > 0) {
@@ -688,13 +623,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }).join('');
   }
 
-  // Scroll fade
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold:.1 });
   document.querySelectorAll('.fade').forEach(el => obs.observe(el));
 
-  // Counter alumnas
   const heroObs = new IntersectionObserver(entries => {
     if (!entries[0].isIntersecting) return;
     const el = document.getElementById('cnt-alumnas');
@@ -707,7 +640,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (hs) heroObs.observe(hs);
 });
 
-// Formulario WhatsApp
 document.getElementById('form-inscripcion').addEventListener('submit', function(e) {
   e.preventDefault();
   const nombre      = document.getElementById('nombre').value.trim();
@@ -731,7 +663,7 @@ document.getElementById('form-inscripcion').addEventListener('submit', function(
     email ? `📧 *Email:* ${email}` : null,
     `💳 *Plan:* ${plan}`,
     `⚽ *Experiencia:* ${experiencia}`,
-    obs  ? `📝 *Obs:* ${obs}` : null,
+    obs ? `📝 *Obs:* ${obs}` : null,
     ``,`_Desde el sitio web de Sinergia F.C_`,
   ].filter(Boolean).join('\n');
 
