@@ -584,12 +584,12 @@ document.addEventListener('DOMContentLoaded', () => {
     grid.innerHTML = SPONSORS.map(s => {
       const ini = s.nombre.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
       const logo = s.logo ? `<img src="${s.logo}" alt="${s.nombre}">` : ini;
-      return `<a href="${s.link}" target="_blank" rel="noopener" class="sponsor-card fade">
+      return `<div class="sponsor-card fade">
         <div class="sponsor-logo">${logo}</div>
         <div class="sponsor-nombre">${s.nombre}</div>
         <div class="sponsor-desc">${s.desc}</div>
         <span class="sponsor-tag">${s.tag}</span>
-      </a>`;
+      </div>`;
     }).join('');
   }
 
